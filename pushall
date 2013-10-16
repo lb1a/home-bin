@@ -1,0 +1,12 @@
+#!/usr/bin/python
+#encoding=UTF-8
+
+from subprocess import check_output, call
+targets = check_output(["git remote"], shell=True)
+
+for target in targets.split('\n'):
+    if target != '':
+        print 'Pushing to %s' % target
+        if not(call(['git', 'push', target]) == 0):        
+            print target + ' failed to push'
+

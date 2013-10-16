@@ -1,0 +1,2 @@
+#!/bin/bash
+git ls-files -z | while read -d '' file; do file="${file%%/*}"; git log -1 --pretty="$file"$'\t'"%h %s" -- "$file"; done | column -t -s $'\t'
