@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+gitk --all $(git log -g --format="%h" -50) "$@"; 
